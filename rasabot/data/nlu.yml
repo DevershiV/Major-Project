@@ -1,0 +1,152 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - goodbye
+    - good bye
+    - BYE
+    - CU
+    - cu
+    - bye bye
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - who are you?
+    - who am i talking to?
+- intent: thankyou
+  examples: |
+    - thankyou
+    - Thank you
+    - thank you
+    - Thanks
+    - thanks
+- intent: english
+  examples: |
+    - English
+    - ENGLISH
+    - english
+    - english language
+- intent: hindi
+  examples: |
+    - Hindi
+    - HINDI
+    - hindi
+    - hindi language
+- intent: arabic
+  examples: |
+    - arabic
+    - ARABIC
+    - Arabic
+    - arabic language
+- intent: menu
+  examples: |
+    - show me more options
+    - help me
+    - more options
+    - can you help
+- intent: explore
+  examples: |
+    - explore
+    - EXPLORE
+    - Explore
+- intent: popular_tours
+  examples: |
+    - tour
+    - Popular tour
+    - most popular tour
+    - show me most popular tours
+
+- intent: booking
+  examples: |
+    - Book Now
+    - book now
+    - want to book now
+- intent: call_bot_greet
+  examples: |
+    - call now
+    - call
+    - can i call
+    - how can i call?
+    - can you help me in calling?
+    - please call.
+    - how can i get a callback?
+    - how can i receive a call?
+    - please call me
+    - can you call me
+    - can you give me a call?
+- intent: call_bot_number
+  examples: |
+    - 012323274234
+    - 92374294832423
+    - 238394839284
+    - 9326354847459
+- intent: feedback
+  examples: |
+    - feedback
+    - feedback yes
+    - feedback no
+- intent: comment
+  examples: |
+    - I want to add comment
+    - add comment
+    - write comment
+    - comment add
+    - comment
+
+- intent: transcript
+  examples: |
+    - transcript
+    - Transcript
+    - yes i want copy of the conservation
+    - want copy of conversation
+    - can I have a transcript
+    - send me a transcript
+    - give me a transcript
+
+- intent: no_transcript
+  examples: |
+    - no
+    - no transcript
+
+- intent: write
+  examples: |
+    - I want to write something
+    - can i write something
+    - write
+    - want to write
+- intent: deny
+  examples: |
+    - No
+    - deny
+
+- intent: response
+  examples: |
+    - Say Thank you for your response
+    - response
+    - thank you for your response
+
+- intent: attachment
+  examples: |
+    - sending an attachment
+    - attachment shared
+    - shared an attachment
+    - I am sharing an attachment
+    - please save my attachment

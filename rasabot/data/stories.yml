@@ -1,0 +1,167 @@
+version: "3.1"
+stories:
+
+- story: greet user
+  steps:
+  - intent: greet
+  - action: action_greet_user
+
+- story: Hindi Lang
+  steps:
+  - intent: greet
+  - action: action_greet_user
+  - intent: hindi
+  - action: action_hindi
+  - intent: explore
+  - action: action_explore
+
+
+- story: English Lang
+  steps:
+  - intent: greet
+  - action: action_greet_user
+  - intent: english
+  - action: action_english
+  - intent: explore
+  - action: action_explore
+
+- story: Arabic Lang
+  steps:
+  - intent: greet
+  - action: action_greet_user
+  - intent: arabic
+  - action: action_arabic
+  - intent: explore
+  - action: action_explore
+
+- story: english
+  steps:
+  - intent: english
+  - action: action_english
+
+- story: hindi
+  steps:
+  - intent: hindi
+  - action: action_hindi
+
+- story: arabic
+  steps:
+  - intent: arabic
+  - action: action_arabic
+
+- story: popular tours
+  steps:
+  - intent: explore
+  - action: action_explore
+  - intent: popular_tours
+  - action: action_tours
+  - intent: booking
+  - action: action_feedback
+  - intent: comment
+  - action: action_ask_comment
+  - intent: write
+  - action: action_comment
+  - intent: response
+  - action: action_comment_response
+  - action: action_ask_transcript
+
+- story: popular tours
+  steps:
+  - intent: explore
+  - action: action_explore
+  - intent: popular_tours
+  - action: action_tours
+  - intent: booking
+  - action: action_feedback
+  - intent: comment
+  - action: action_ask_comment
+  - intent: deny
+  - action: action_comment_response
+  - action: action_ask_transcript
+
+- story: feedback and yes_comment and yes_transcript
+  steps:
+  - intent: booking
+  - action: action_feedback
+  - intent: comment
+  - action: action_ask_comment
+  - intent: write
+  - action: action_comment
+  - intent: response
+  - action: action_comment_response
+  - action: action_ask_transcript
+  - intent: transcript
+  - action: action_transcript_yes
+
+- story: feedback and yes_comment and no_transcript
+  steps:
+  - intent: booking
+  - action: action_feedback
+  - intent: comment
+  - action: action_ask_comment
+  - intent: write
+  - action: action_comment
+  - intent: response
+  - action: action_comment_response
+  - action: action_ask_transcript
+  - intent: no_transcript
+  - action: action_transcript_no
+
+- story: feedback and no_comment and no_transcript
+  steps:
+  - intent: booking
+  - action: action_feedback
+  - intent: comment
+  - action: action_ask_comment
+  - intent: deny
+  - action: action_comment_response
+  - action: action_ask_transcript
+  - intent: no_transcript
+  - action: action_transcript_no
+
+- story: feedback and no_comment and yes_transcript
+  steps:
+  - intent: booking
+  - action: action_feedback
+  - intent: comment
+  - action: action_ask_comment
+  - intent: deny
+  - action: action_comment_response
+  - action: action_ask_transcript
+  - intent: transcript
+  - action: action_transcript_yes
+
+- story: comment
+  steps:
+  - intent: write
+  - action: action_comment
+  - intent: response
+  - action: action_comment_response
+  - action: action_ask_transcript
+  - intent: transcript
+  - action: action_transcript_yes
+
+
+- story: call the agent
+  steps:
+  - intent: explore
+  - action: action_explore
+  - intent: popular_tours
+  - action: action_tours
+  - intent: call_bot_greet
+  - action: action_call_bot_greet
+  - intent: call_bot_number
+  - action: action_call_bot_number
+
+
+- story: thanks to user
+  steps:
+  - intent: thankyou
+  - action: action_thanks
+
+- story: add response
+  steps:
+  - intent: response
+  - action: action_comment_response
+
+

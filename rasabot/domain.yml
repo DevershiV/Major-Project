@@ -1,0 +1,46 @@
+version: '3.1'
+intents:
+- arabic
+- booking
+- bot_challenge
+- call_bot_greet
+- call_bot_number
+- comment
+- deny
+- english
+- explore
+- feedback
+- goodbye
+- greet
+- hindi
+- menu
+- no_transcript
+- popular_tours
+- thankyou
+- transcript
+- write
+- response
+- attachment
+actions:
+- action_arabic
+- action_ask_comment
+- action_comment
+- action_comment_response
+- action_english
+- action_explore
+- action_feedback
+- action_greet_user
+- action_hindi
+- action_iamabot
+- action_thanks
+- action_tours
+- action_transcript_no
+- action_transcript_yes
+- action_ask_transcript
+- action_fallback
+- action_attachment
+- action_call_bot_greet
+- action_call_bot_number
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
