@@ -1,32 +1,29 @@
 version: '3'
 services:
-   https-portal:
-    image: steveltn/https-portal:1
-    ports:
-      - '443:443'
-      - '80:80'
-    links:
-      - elasticsearch
-      - haystack
-      - api
-      - nlu
-      - server
-      # - streamlit
-      - node
-      - botui_server
-      - botui_node
-    restart: on-failure
-    # environment:
-    #   DOMAINS: 'uat.ml.novacept.io -> http://api:8000 , uat.nlu.ml.novacept.io -> http://nlu:8080 , uat.kb.novacept.io -> http://streamlit:8501 , uat.kb.node.novacept.io -> http://node:8051'
-    #   STAGE: 'production' # Don't use production until staging works
-    #   # FORCE_RENEW: 'true'
-    #   WEBSOCKET: 'true'
-    env_file:
-      - .env
-    volumes: 
-      - https-portal-data:/var/lib/https-portal
-    networks:
-       - test-network
+  #  https-portal:
+  #   image: steveltn/https-portal:1
+  #   ports:
+  #     - '443:443'
+  #     - '80:80'
+  #   links:
+  #     - elasticsearch
+  #     - haystack
+  #     - api
+  #     - nlu
+  #     - streamlit
+  #     - node
+  #   restart: on-failure
+  #   # environment:
+  #   #   DOMAINS: 'uat.ml.novacept.io -> http://api:8000 , uat.nlu.ml.novacept.io -> http://nlu:8080 , uat.kb.novacept.io -> http://streamlit:8501 , uat.kb.node.novacept.io -> http://node:8051'
+  #   #   STAGE: 'production' # Don't use production until staging works
+  #   #   # FORCE_RENEW: 'true'
+  #   #   WEBSOCKET: 'true'
+  #   env_file:
+  #     - .env
+  #   volumes: 
+  #     - https-portal-data:/var/lib/https-portal
+  #   networks:
+  #      - test-network
  
    elasticsearch:
      restart: on-failure
@@ -86,7 +83,7 @@ services:
         
    nlu:
     restart: on-failure
-    build: ./rasa_nlu
+    build: ./rasabot
     container_name: rasa-nlu
     volumes:
      - ./rasa_nlu/config.yml:/app/config.yml
@@ -96,85 +93,32 @@ services:
     networks:
      - test-network
 
-  #  streamlit:
-  #   restart: on-failure
-  #   container_name: streamlit-data
-  #   build: ./kb-editor/my_component
-  #   ports:
-  #    - "8501:8501"
-  #   networks:
-  #    - test-network
-
-  #  node:
-  #   restart: on-failure
-  #   container_name: node-data
-  #   build: ./kb-editor/my_component/frontend
-  #   ports:
-  #    - "8051:8051"
-  #   networks:
-  #    - test-network
-  #   command: ["npm", "start"]
-  #   # volumes:
-  #   #   - /app/frontend
-  #   tty: true
-   server:
+   streamlit:
     restart: on-failure
-    container_name: backend-data
-    build: ./qna-editor/backend
+    container_name: streamlit-data
+    build: ./kb-editor/my_component
     ports:
-      - "8085:8085"
+     - "8501:8501"
     networks:
-      - test-network
-    command: ["node", "index.js"]
-    volumes:
-      - data1:/app/qna-editor/backend
-    tty: true
-     
+     - test-network
+
    node:
     restart: on-failure
-    container_name: frontend-data
-    build: ./qna-editor/frontend
+    container_name: node-data
+    build: ./kb-editor/my_component/frontend
     ports:
-     - "8009:8009"
+     - "8051:8051"
     networks:
      - test-network
     command: ["npm", "start"]
-    volumes:
-       - data2:/app/qna-editor/frontend
+    # volumes:
+    #   - /app/frontend
     tty: true
 
-   botui_server:
-    restart: on-failure
-    container_name: server-data
-    build: ./botui-editor/backend
-    ports:
-      - "8086:8086"
-    networks:
-      - test-network
-    command: ["node", "index.js"]
-    volumes:
-      - data1:/app/botui-editor/backend
-    tty: true
 
-   botui_node:
-    restart: on-failure
-    container_name: node-data
-    build: ./botui-editor/frontend
-    ports:
-      - "8010:8010"
-    networks:
-      - test-network
-    command: ["npm", "start"]
-    volumes:
-      - data2:/app/botui-editor/frontend
-    tty: true
- 
-     
 networks:
   test-network:
 volumes:
-  https-portal-data: 
+  # https-portal-data: 
   esdata:
     driver: local
-  data1: 
-  data2:
